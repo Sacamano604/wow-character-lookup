@@ -9,14 +9,23 @@
 
 			//Using that variable to lookup the character name and log it into the console
 			$.getJSON(characterPath, function(fetchedCharacter){
-					console.log(fetchedCharacter.name);
-					console.log(fetchedCharacter.realm);
-					console.log(fetchedCharacter.class);
-					console.log(fetchedCharacter.race);
-					console.log(fetchedCharacter.level);
-					console.log(fetchedCharacter.achievementPoints);
-				});
+				document.getElementById("namePlaceholder").innerHTML = fetchedCharacter.name;
+				document.getElementById("serverPlaceholder").innerHTML = fetchedCharacter.realm;
+				document.getElementById("classPlaceholder").innerHTML = fetchedCharacter.class;
+				document.getElementById("racePlaceholder").innerHTML = fetchedCharacter.race;
+				document.getElementById("levelPlaceholder").innerHTML = fetchedCharacter.level;
+				document.getElementById("achievementPointsPlaceholder").innerHTML = fetchedCharacter.achievementPoints;
+			});
 		</script>
+
+		<ul>
+			<li><strong>Character Name:</strong> <span id="namePlaceholder"></span></li>
+			<li><strong>Server Played:</strong> <span id="serverPlaceholder"></span></li>
+			<li><strong>Character Class:</strong> <span id="classPlaceholder"></span></li>
+			<li><strong>Character Race:</strong> <span id="racePlaceholder"></span></li>
+			<li><strong>Character Level:</strong> <span id="levelPlaceholder"></span></li>
+			<li><strong>Total Achievement Points:</strong> <span id="achievementPointsPlaceholder"></span> /25785</li>
+		<ul>
 
 	</body>
 </html>
