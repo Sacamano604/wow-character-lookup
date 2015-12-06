@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script type"text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//Putting the character lookup url, with API key in a variable
+			var characterPath = "https://us.api.battle.net/wow/character/thrall/sacamanos?locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv";
+
+			//Using that variable to lookup the character name and log it into the console
+			$.getJSON(characterPath, function(fetchedCharacter){
+				var charactername = fetchedCharacter.name;
+					console.log(charactername);
+
+
+
+
+
+				});
+
+
+
+		</script>
+
+	</body>
+</html>
