@@ -9,17 +9,13 @@
 
 			//Using that variable to lookup the character name and log it into the console
 			$.getJSON(characterPath, function(fetchedCharacter){
-				var charactername = fetchedCharacter.name;
-					console.log(charactername);
-
-
-
-
-
+					console.log(fetchedCharacter.name);
+					console.log(fetchedCharacter.realm);
+					console.log(fetchedCharacter.class);
+					console.log(fetchedCharacter.race);
+					console.log(fetchedCharacter.level);
+					console.log(fetchedCharacter.achievementPoints);
 				});
-
-
-
 		</script>
 
 	</body>
