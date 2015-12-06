@@ -1,9 +1,17 @@
 <html>
 	<head>
-		<script type"text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<title>WoW Character Lookup - Blizzard API</title>
 	</head>
 	<body>
-		<script type="text/javascript" src="js/lookup.js"></script>
+		<form>
+			<input type="text" name="characterLookupName" size="15" id="characterLookupName" />
+
+			<select id="characterLookupServer">
+				<option value="thrall" name="thrall">Thrall</option>
+			</select>
+
+			<button type="submit" id="submitButton" onclick="characterLookup(document.getElementById('characterLookupName').value, document.getElementById('characterLookupServer').value); return false;">Look Up</button>
+		</form>
 
 		<ul>
 			<li><strong>Character Name:</strong> <span id="namePlaceholder"></span></li>
@@ -14,5 +22,10 @@
 			<li><strong>Total Achievement Points:</strong> <span id="achievementPointsPlaceholder"></span> / 25785</li>
 		<ul>
 
+
+		<!-- using jQuery to parse the JSON -->
+		<script type"text/javascript" src="js/jquery-1.11.3.min.js"></script>
+		<!-- Script to present the data -->
+		<script type="text/javascript" src="js/lookup.js"></script>
 	</body>
 </html>
