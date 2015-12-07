@@ -2,9 +2,15 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	//Putting the character lookup url, with API key in a variable
 	//Please don't use my API key :) They're free and easy to get
 	var characterPath = "https://us.api.battle.net/wow/character/" + characterLookupServer + "/" + characterLookupName + "?locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv";
+	//Because jsonp doesn't handle 404 callback errors we need to use a timeout function to handle the error.
+	//If the json doesn't return with a valid array within 3 seconds we'll display an error
+	//Start error handling by setting the success variable to true 
+	var success = false;
 
 	//Using that variable to lookup the character name and document write to ID's on the html page
 	$.getJSON(characterPath, function(fetchedCharacter){
+		//if we can find the character flag success as true and proceed
+		success = true;
 		//Using a switch to find the name of the class and not the actual number from the JSON
 		var findClass = fetchedCharacter.class;
 		switch(findClass){
@@ -98,5 +104,11 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		document.getElementById("racePlaceholder").innerHTML = raceName;
 		document.getElementById("levelPlaceholder").innerHTML = fetchedCharacter.level;
 		document.getElementById("achievementPointsPlaceholder").innerHTML = fetchedCharacter.achievementPoints;
+	
 	});
-}
+		//if the timeout occurs after 3 seconds, display the following error.
+		setTimeout(function() {
+		    if (!success) {
+		        document.getElementById("error").innerHTML = "Error, character not found";
+		    } }, 3000);
+};

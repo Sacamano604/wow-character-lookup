@@ -5,7 +5,6 @@
 	<body>
 		<form>
 			Character Name: <input type="text" name="characterLookupName" size="15" id="characterLookupName" />
-
 			<select id="characterLookupServer">
 				<option value="">Please select a server...</option>
 				<option value="Aegwynn">Aegwynn</option>
@@ -255,7 +254,7 @@
 			<button type="submit" id="submitButton" onclick="characterLookup(document.getElementById('characterLookupName').value, document.getElementById('characterLookupServer').value); return false;">Look Up</button>
 			<button type="reset">Reset</button>
 		</form>
-
+		<p id="error"></p>
 		<ul>
 			<li><strong>Character Name:</strong> <span id="namePlaceholder"></span></li>
 			<li><strong>Server Played:</strong> <span id="serverPlaceholder"></span></li>
