@@ -1,4 +1,5 @@
 var characterLookup = function(characterLookupName, characterLookupServer){
+	document.getElementById('error').innerHTML = "";
 	//Putting the character lookup url, with API key in a variable
 	//Please don't use my API key :) They're free and easy to get
 	var characterPath = "https://us.api.battle.net/wow/character/" + characterLookupServer + "/" + characterLookupName + "?locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv";

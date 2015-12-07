@@ -1,0 +1,49 @@
+body {
+	font-family: Helvetica, Arial;
+	line-height: 1.5em;
+}
+#container {
+	padding: 10px 0 0 30px;
+}
+#lookupForm{
+	width: 450px;
+	line-height: 3em;
+	float: left;
+	height: 500px;
+}
+#resultsDisplay {
+	height: 500px;
+	margin-left: 35%;
+}
+ul {
+	list-style-type: none;
+}
+button { 
+	border: none; 
+} 
+.searchBtn {
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 15px;
+	background: #00c20d;
+	padding: 8px 15px 8px 15px;
+	text-decoration: none;
+}
+.searchBtn:hover {
+	background: #028a0b;
+	text-decoration: none;
+}
+.resetBtn {
+	color: #ffffff;
+	font-size: 15px;
+	background: #c20000;
+	padding: 8px 15px 8px 15px;
+	text-decoration: none;
+}
+.resetBtn:hover {
+	background: #8c0000;
+	text-decoration: none;
+}
+#error {
+	color: red;
+}
