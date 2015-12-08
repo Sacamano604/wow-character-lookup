@@ -113,3 +113,13 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		        document.getElementById("error").innerHTML = "Error, character not found";
 		    } }, 3000);
 };
+//Ensuring the reset button resets everything including the error from the previous lookup
+var clearAll = function() {
+	document.getElementById("error").innerHTML = "";
+	document.getElementById("namePlaceholder").innerHTML = "";
+	document.getElementById("serverPlaceholder").innerHTML = "";
+	document.getElementById("classPlaceholder").innerHTML = "";
+	document.getElementById("racePlaceholder").innerHTML = "";
+	document.getElementById("levelPlaceholder").innerHTML = "";
+	document.getElementById("achievementPointsPlaceholder").innerHTML = "";
+};
