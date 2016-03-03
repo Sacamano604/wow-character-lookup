@@ -139,14 +139,15 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		$('#levelPlaceholder').html(fetchedCharacter.level);
 		$('#achievementPointsPlaceholder').html(fetchedCharacter.achievementPoints);
 		$('#characterThumbnail').html(imagePath);
-
-		$('#resultsDisplay').css('display', 'initial');
+		setTimeout(function(){
+			$('#resultsDisplay').css('display', 'initial');
+		}, 2000);
 	});
 		//if the timeout occurs after 3 seconds, display the following error.
 		setTimeout(function() {
 		    if (!success) {
 		        $('#error').html('Error, character not found');
-		    } }, 3000);
+		    } }, 5000);
 };
 //Ensuring the reset button resets everything including the error from the previous lookup
 var clearAll = function() {
