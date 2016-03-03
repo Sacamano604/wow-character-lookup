@@ -16,10 +16,11 @@
 	  <!-- Custom styles, will move to seperate style sheet in due time -->
 	    <style type="text/css">
 	      body {
-	      	font-family: Helvetica, Arial, sans-serif;
+	      	font-family: Arial, Helvetica, sans-serif;
 	      }
 	      #resultsDisplay {
 	        margin-top: 30px;
+	        display: none;
 	      }
 	      #error {
 	      	color: red;
@@ -40,6 +41,9 @@
 	      }
 	      button {
 	      	margin: 10px;
+	      }
+	      #detailsTable {
+	      	background-color: #eee;
 	      }
 	    </style>
 	    <!-- End of Custom Styles -->
@@ -322,17 +326,26 @@
 			
 			</div>
 			<div id="resultsDisplay">
-				
-				<h1 id="namePlaceholder"></h1>
-				<p class="characterSpecifics">Level <span id="levelPlaceholder"></span> <span id="racePlaceholder"></span> <span id="classPlaceholder"></span></p>
-				<p class="characterSpecifics">Playing on <span id="serverPlaceholder"></span></p>
-
-<!-- 				<ul class="list-unstyled">
-					
-
-					<li><strong>Total Achievement Points:</strong> <span id="achievementPointsPlaceholder"></span> out of 25785</li>
-				<ul>
- -->			</div>
+				<div class="row">
+					<div class="col-md-6">	
+						<h1 id="namePlaceholder"></h1>
+						<p class="characterSpecifics">Level <span id="levelPlaceholder"></span> <span id="racePlaceholder"></span> <span id="classPlaceholder"></span></p>
+						<p class="characterSpecifics">Playing on <span id="serverPlaceholder"></span></p>
+					</div>
+					<div class="col-md-6">
+						<table id="detailsTable">
+							<tr>
+								<td>Left top</td>
+								<td>Right top</td>
+							</tr>
+							<tr>
+								<td>Left bottom</td>
+								<td>Right bottom</td>
+							</tr>
+						</table>	
+					</div>
+				</div>
+ 		</div>
 		</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

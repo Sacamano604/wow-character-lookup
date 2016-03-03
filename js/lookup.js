@@ -21,7 +21,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$('#error').html('');
 	//Putting the character lookup url, with API key in a variable
 	//Please don't use my API key :) They're free and easy to get
-	var characterPath = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
+	var characterPath = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 	//Because jsonp doesn't handle 404 callback errors we need to use a timeout function to handle the error.
 	//If the json doesn't return with a valid array within 3 seconds we'll display an error
 	//Start error handling by setting the success variable to true 
@@ -53,7 +53,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 			break;
 			case 5:
 				className = 'Priest';
-				classColor = '#';
+				classColor = '#ffff00';
 			break;
 			case 6:
 				className = 'Death Knight';
@@ -137,7 +137,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		$('#racePlaceholder').html(raceName);
 		$('#levelPlaceholder').html(fetchedCharacter.level);
 		$('#achievementPointsPlaceholder').html(fetchedCharacter.achievementPoints);
-	
+		$('#resultsDisplay').css('display', 'initial');
 	});
 		//if the timeout occurs after 3 seconds, display the following error.
 		setTimeout(function() {
@@ -154,4 +154,5 @@ var clearAll = function() {
 	$('#racePlaceholder').html('');
 	$('#levelPlaceholder').html('');
 	$('#achievementPointsPlaceholder').html('');
+	$('#resultsDisplay').css('display', 'none');
 };
