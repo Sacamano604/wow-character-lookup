@@ -1,17 +1,17 @@
 //Playing with code to have the ability to check for specific achievements
-$(document).ready(function(){
-	$.getJSON('https://us.api.battle.net/wow/character/thrall/Sacamanos?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv', function(returned){
-		var myarray = returned.achievements.achievementsCompleted;
-		console.log(myarray);
-		var test = myarray.indexOf(10044);
-		console.log(test);
-		if (test == -1) {
-			console.log('Not Ahead');
-		} else {
-			console.log('Ahead of the curve');
-		}
-	});
-});
+// $(document).ready(function(){
+// 	$.getJSON('https://us.api.battle.net/wow/character/thrall/Sacamanos?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv', function(returned){
+// 		var myarray = returned.achievements.achievementsCompleted;
+// 		console.log(myarray);
+// 		var test = myarray.indexOf(10044);
+// 		console.log(test);
+// 		if (test == -1) {
+// 			console.log('Not Ahead');
+// 		} else {
+// 			console.log('Ahead of the curve');
+// 		}
+// 	});
+// });
 
 
 
@@ -129,6 +129,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 				raceName = 'Pandaren (Horde)';
 			break;	
 		}
+		var imagePath = '<img src="http://render-api-us.worldofwarcraft.com/static-render/us/' + fetchedCharacter.thumbnail + '" />';
 		//Pushing the JSON into the span placeholders
 		$('#namePlaceholder').html(fetchedCharacter.name);
 		$('#namePlaceholder').css('color', classColor);
@@ -137,6 +138,8 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		$('#racePlaceholder').html(raceName);
 		$('#levelPlaceholder').html(fetchedCharacter.level);
 		$('#achievementPointsPlaceholder').html(fetchedCharacter.achievementPoints);
+		$('#characterThumbnail').html(imagePath);
+
 		$('#resultsDisplay').css('display', 'initial');
 	});
 		//if the timeout occurs after 3 seconds, display the following error.
