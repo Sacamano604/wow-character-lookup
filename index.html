@@ -43,7 +43,27 @@
 	      	margin: 10px;
 	      }
 	      #detailsTable {
-	      	background-color: #eee;
+	      	margin-top: 20px;
+	      	width: 220px;
+	      	height: 150px;
+	      	text-align: center;
+		     	border-collapse: separate;
+	      	border-spacing: 5px;
+	      }
+	      td {
+	      	padding: 10px;
+		      background-color: #d9edf7;
+	      }
+	      #checkmark {
+	      	font-size: 200%;
+	      	color: green;
+	      }
+	      #legRing {
+	      	background: url("images/legRingBackground.png") no-repeat center center;
+		      background-color: #d9edf7;	      	
+		      color: orange;
+		      font-size: 2.5em;
+		      text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 	      }
 	    </style>
 	    <!-- End of Custom Styles -->
@@ -333,16 +353,18 @@
 						<p class="characterSpecifics">Playing on <span id="serverPlaceholder"></span></p>
 					</div>
 					<div class="col-md-6">
+						
 						<table id="detailsTable">
 							<tr>
-								<td>Left top</td>
-								<td>Right top</td>
+								<td><img src="http://render-api-us.worldofwarcraft.com/static-render/us/internal-record-3678/78/143677774-avatar.jpg" /></td>
+								<td id="legRing" width="104">795</td>
 							</tr>
 							<tr>
-								<td>Left bottom</td>
-								<td>Right bottom</td>
+								<td>Ahead of the curve?</td>
+								<td><span id="checkmark" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
 							</tr>
 						</table>	
+
 					</div>
 				</div>
  		</div>
