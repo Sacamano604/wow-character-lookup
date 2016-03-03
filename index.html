@@ -48,6 +48,7 @@
 	      	margin: 10px;
 	      }
 	      #detailsTable {
+	      	float: right;
 	      	margin-top: 20px;
 	      	width: 220px;
 	      	height: 150px;
@@ -55,7 +56,7 @@
 		     	border-collapse: separate;
 	      	border-spacing: 5px;
 	      }
-	      td {
+	      #detailsTable td {
 	      	padding: 10px;
 		      background-color: #d9edf7;
 	      }
@@ -72,6 +73,14 @@
 	      }
 	      #progPanel {
 	      	margin-top: 20px;
+	      }
+	      img {
+	      	border-radius: 5px;
+	      }
+
+	      /* leave on the bottom */
+	      .panel-heading {
+	      	text-align: center;
 	      }
 	    </style>
 	     <link href="css/panel.css" rel="stylesheet">
@@ -395,9 +404,504 @@
                 </div>
                 <div class="panel-body">
                     <div class="tab-content">
-                        <div class="tab-pane fade in active" id="tab1info">Hellfire Citadel Progress here</div>
-                        <div class="tab-pane fade" id="tab2info">Blackrock Foundry Progress here</div>
-                        <div class="tab-pane fade" id="tab3info">Highmail Progress here</div>
+                        <div class="tab-pane fade in active" id="tab1info">
+                        	<!-- START OF THE ROW -->
+                        	<div class="row">
+                        		<div class="col-md-4">
+                        			<div class="panel panel-success">
+														  	<div class="panel-heading">
+														  		<h4>Normal</h4>
+														  	</div>
+																  <table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Hellfire Assult</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Iron Reaver</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Kormork</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Hellfire High Council</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Kirogg Deadeye</td>
+																    	<td>6</td>
+																    </tr>
+																    <tr>
+																    	<td>Gorefiend</td>
+																    	<td>6</td>
+																    </tr>
+																    <tr>
+																    	<td>Shadow-Lord Iskar</td>
+																    	<td>6</td>
+																    </tr>
+																    <tr>
+																    	<td>Socrethar the Eternal</td>
+																    	<td>10</td>
+																    </tr>
+																    <tr>
+																    	<td>Tyrant Velhari</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Fel Lord Zakuun</td>
+																    	<td>9</td>
+																    </tr>
+																    <tr>
+																    	<td>Xul'horac</td>
+																    	<td>11</td>
+																    </tr>
+																    <tr>
+																    	<td>Mannoroth</td>
+																    	<td>12</td>
+																    </tr>		
+																    <tr>
+																    	<td>Archimonde</td>
+																    	<td>8</td>
+																    </tr>																    														    
+																  </table>
+																</div>
+                        		</div>
+                        		<div class="col-md-4">
+                        			<div class="panel panel-warning">
+														  	<div class="panel-heading">
+														  		<h4>Heroic</h4>
+														  	</div>
+																 	<table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Hellfire Assult</td>
+																    	<td>14</td>
+																    </tr>
+																    <tr>
+																    	<td>Iron Reaver</td>
+																    	<td>13</td>
+																    </tr>
+																    <tr>
+																    	<td>Kormork</td>
+																    	<td>16</td>
+																    </tr>
+																    <tr>
+																    	<td>Hellfire High Council</td>
+																    	<td>16</td>
+																    </tr>
+																    <tr>
+																    	<td>Kirogg Deadeye</td>
+																    	<td>16</td>
+																    </tr>
+																    <tr>
+																    	<td>Gorefiend</td>
+																    	<td>15</td>
+																    </tr>
+																    <tr>
+																    	<td>Shadow-Lord Iskar</td>
+																    	<td>14</td>
+																    </tr>
+																    <tr>
+																    	<td>Socrethar the Eternal</td>
+																    	<td>21</td>
+																    </tr>
+																    <tr>
+																    	<td>Tyrant Velhari</td>
+																    	<td>14</td>
+																    </tr>
+																    <tr>
+																    	<td>Fel Lord Zakuun</td>
+																    	<td>13</td>
+																    </tr>
+																    <tr>
+																    	<td>Xul'horac</td>
+																    	<td>15</td>
+																    </tr>
+																    <tr>
+																    	<td>Mannoroth</td>
+																    	<td>26</td>
+																    </tr>		
+																    <tr>
+																    	<td>Archimonde</td>
+																    	<td>24</td>
+																    </tr>																    														    
+																  </table>
+																</div>
+                        		</div>
+                        		<div class="col-md-4">
+                        			<div class="panel panel-danger">
+														  	<div class="panel-heading">
+														  		<h4>Mythic</h4>
+														  	</div>
+																 <table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Hellfire Assult</td>
+																    	<td>18</td>
+																    </tr>
+																    <tr>
+																    	<td>Iron Reaver</td>
+																    	<td>17</td>
+																    </tr>
+																    <tr>
+																    	<td>Kormork</td>
+																    	<td>15</td>
+																    </tr>
+																    <tr>
+																    	<td>Hellfire High Council</td>
+																    	<td>13</td>
+																    </tr>
+																    <tr>
+																    	<td>Kirogg Deadeye</td>
+																    	<td>12</td>
+																    </tr>
+																    <tr>
+																    	<td>Gorefiend</td>
+																    	<td>8</td>
+																    </tr>
+																    <tr>
+																    	<td>Shadow-Lord Iskar</td>
+																    	<td>6</td>
+																    </tr>
+																    <tr>
+																    	<td>Socrethar the Eternal</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Tyrant Velhari</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Fel Lord Zakuun</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Xul'horac</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Mannoroth</td>
+																    	<td>0</td>
+																    </tr>		
+																    <tr>
+																    	<td>Archimonde</td>
+																    	<td>0</td>
+																    </tr>																    														    
+																  </table>
+																</div>
+                        		</div>
+                        	</div>
+                        	<!-- END OF THE ROW -->
+                        </div>
+                        <div class="tab-pane fade" id="tab2info">
+                        	        	<!-- START OF THE ROW -->
+                        	<div class="row">
+                        		<div class="col-md-4">
+                        			<div class="panel panel-success">
+														  	<div class="panel-heading">
+														  		<h4>Normal</h4>
+														  	</div>
+																  <table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Oregorger</td>
+																    	<td>8</td>
+																    </tr>
+																    <tr>
+																    	<td>Gruul</td>
+																    	<td>11</td>
+																    </tr>
+																    <tr>
+																    	<td>The Blast Furnace</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Hans'gar and Franzok</td>
+																    	<td>9</td>
+																    </tr>
+																    <tr>
+																    	<td>Flamebender Ka'graz</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Kromog</td>
+																    	<td>5</td>
+																    </tr>
+																    <tr>
+																    	<td>Beastlord Darmac</td>
+																    	<td>10</td>
+																    </tr>
+																    <tr>
+																    	<td>Operator Thogar</td>
+																    	<td>6</td>
+																    </tr>
+																    <tr>
+																    	<td>The Iron Maidens</td>
+																    	<td>3</td>
+																    </tr>
+																    <tr>
+																    	<td>Blackhand</td>
+																    	<td>0</td>
+																    </tr>
+																  </table>
+																</div>
+                        		</div>
+                        		<div class="col-md-4">
+                        			<div class="panel panel-warning">
+														  	<div class="panel-heading">
+														  		<h4>Heroic</h4>
+														  	</div>
+																  <table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Oregorger</td>
+																    	<td>3</td>
+																    </tr>
+																    <tr>
+																    	<td>Gruul</td>
+																    	<td>3</td>
+																    </tr>
+																    <tr>
+																    	<td>The Blast Furnace</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Hans'gar and Franzok</td>
+																    	<td>4</td>
+																    </tr>
+																    <tr>
+																    	<td>Flamebender Ka'graz</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Kromog</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Beastlord Darmac</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Operator Thogar</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>The Iron Maidens</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Blackhand</td>
+																    	<td>0</td>
+																    </tr>
+																  </table>
+																</div>
+                        		</div>
+                        		<div class="col-md-4">
+                        			<div class="panel panel-danger">
+														  	<div class="panel-heading">
+														  		<h4>Mythic</h4>
+														  	</div>
+																  <table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Oregorger</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Gruul</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>The Blast Furnace</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Hans'gar and Franzok</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Flamebender Ka'graz</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Kromog</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Beastlord Darmac</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Operator Thogar</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>The Iron Maidens</td>
+																    	<td>0</td>
+																    </tr>
+																    <tr>
+																    	<td>Blackhand</td>
+																    	<td>0</td>
+																    </tr>
+																  </table>
+																</div>
+                        		</div>
+                        	</div>
+                        	<!-- END OF THE ROW -->
+<DIV></DIV>
+                        </div>
+                        <div class="tab-pane fade" id="tab3info">
+                        	        	<!-- START OF THE ROW -->
+                        	<div class="row">
+                        		<div class="col-md-4">
+                        			<div class="panel panel-success">
+														  	<div class="panel-heading">
+														  		<h4>Normal</h4>
+														  	</div>
+																  <table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Kargath Bladefist</td>
+																    	<td>14</td>
+																    </tr>
+																    <tr>
+																    	<td>The Butcher</td>
+																    	<td>14</td>
+																    </tr>
+																    <tr>
+																    	<td>Brakenspore</td>
+																    	<td>11</td>
+																    </tr>
+																    <tr>
+																    	<td>Tectus</td>
+																    	<td>11</td>
+																    </tr>
+																    <tr>
+																    	<td>Twin Ogron</td>
+																    	<td>11</td>
+																    </tr>
+																    <tr>
+																    	<td>Ko'ragh</td>
+																    	<td>4</td>
+																    </tr>
+																    <tr>
+																    	<td>Imperator Mar'gok</td>
+																    	<td>1</td>
+																    </tr>
+																  </table>
+																</div>
+                        		</div>
+                        		<div class="col-md-4">
+                        			<div class="panel panel-warning">
+														  	<div class="panel-heading">
+														  		<h4>Heroic</h4>
+														  	</div>
+																  <table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Kargath Bladefist</td>
+																    	<td>9</td>
+																    </tr>
+																    <tr>
+																    	<td>The Butcher</td>
+																    	<td>6</td>
+																    </tr>
+																    <tr>
+																    	<td>Brakenspore</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Tectus</td>
+																    	<td>3</td>
+																    </tr>
+																    <tr>
+																    	<td>Twin Ogron</td>
+																    	<td>7</td>
+																    </tr>
+																    <tr>
+																    	<td>Ko'ragh</td>
+																    	<td>2</td>
+																    </tr>
+																    <tr>
+																    	<td>Imperator Mar'gok</td>
+																    	<td>0</td>
+																    </tr>
+																  </table>
+																</div>
+                        		</div>
+                        		<div class="col-md-4">
+                        			<div class="panel panel-danger">
+														  	<div class="panel-heading">
+														  		<h4>Mythic</h4>
+														  	</div>
+														  	<table class="table">
+																    <tr>
+																    	<th>Boss Name</th>
+																    	<th>Kills</th>
+																    </tr>
+																    <tr>
+																    	<td>Kargath Bladefist</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>The Butcher</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Brakenspore</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Tectus</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Twin Ogron</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Ko'ragh</td>
+																    	<td>1</td>
+																    </tr>
+																    <tr>
+																    	<td>Imperator Mar'gok</td>
+																    	<td>0</td>
+																    </tr>
+																  </table>
+																</div>
+                        		</div>
+                        	</div>
+                        	<!-- END OF THE ROW -->
+
+
+                        </div>
                     </div>
                 </div>
 
