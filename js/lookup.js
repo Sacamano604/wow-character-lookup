@@ -1,5 +1,7 @@
 
 var characterLookup = function(characterLookupName, characterLookupServer){
+	$('#resultsDisplay').css('display', 'none');
+	$('#searchingBox').css('display', 'flex');
 	$('#error').html('');
 	//Putting the character lookup url, with API key in a variable
 	//Please don't use my API key :) They're free and easy to get
@@ -131,13 +133,17 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		// $('#achievementPointsPlaceholder').html(fetchedCharacter.achievementPoints);
 		//results div is initially hidden, when the lookup occurs I have a 3 second time out before unhiding all the data
 		//gives it time to gather the json data and assemble it
+		//also hiding the div we display to show the user we're searching
 		setTimeout(function(){
 			$('#resultsDisplay').css('display', 'initial');
+			$('#searchingBox').css('display', 'none');
 				}, 3000);
 			});
 		//if the timeout occurs after 5 seconds, display the following error.
 		setTimeout(function() {
 			if (!success) {
+				$('#resultsDisplay').css('display', 'none');
+				$('#searchingBox').css('display', 'none');
 				$('#error').html('Error, character not found');
 					} }, 5000);
 };

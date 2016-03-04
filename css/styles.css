@@ -49,6 +49,9 @@ button {
 #progPanel {
 	margin-top: 20px;
 }
+#searchingBox {
+	display: none;
+}
 .siteTitle {
 	color: #A9BFC9;
 }
