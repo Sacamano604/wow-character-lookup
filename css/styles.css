@@ -1,0 +1,77 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+form {
+	margin: 20px;
+}
+img {
+	border-radius: 5px;
+}
+button {
+	margin: 10px;
+}
+/* CSS for IDs */
+#resultsDisplay {
+  margin-top: 30px;
+  display: none;
+}
+#error {
+	color: red;
+	font-weight: bold;
+	padding-left: 20px;
+}
+#namePlaceholder {
+	font-size: 400%;
+}
+#detailsTable {
+	float: right;
+	margin-top: 20px;
+	width: 220px;
+	height: 150px;
+	text-align: center;
+ 	border-collapse: separate;
+	border-spacing: 5px;
+}
+#detailsTable td {
+	padding: 10px;
+  background-color: #d9edf7;
+}
+#curveCheck {
+	font-size: 200%;
+}
+#legRing {
+	background: url("../images/legRingBackground.png") no-repeat center center;
+  background-color: #d9edf7;	      	
+  color: orange;
+  font-size: 2.5em;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#progPanel {
+	margin-top: 20px;
+}
+.siteTitle {
+	color: #A9BFC9;
+}
+/* CSS for Classes */
+h1.siteTitle {
+	font-weight: bold;
+	font-size: 300%;
+	margin-top: 0px;
+	color: #31708f;
+}
+.characterSpecifics {
+	font-size: 125%;
+}
+.form-control {
+	margin: 10px;
+}
+.glyphicon-remove {
+	color: red;
+}
+.glyphicon-ok {
+	color: green;
+}
+/* leave on the bottom */
+.panel-heading {
+	text-align: center;
+}

@@ -1,21 +1,3 @@
-//Playing with code to have the ability to check for specific achievements
-// $(document).ready(function(){
-// 	$.getJSON('https://us.api.battle.net/wow/character/thrall/Sacamanos?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv', function(returned){
-// 		var myarray = returned.achievements.achievementsCompleted;
-// 		console.log(myarray);
-// 		var test = myarray.indexOf(10044);
-// 		console.log(test);
-// 		if (test == -1) {
-// 			console.log('Not Ahead');
-// 		} else {
-// 			console.log('Ahead of the curve');
-// 		}
-// 	});
-// });
-
-
-
-//https://us.api.battle.net/wow/character/thrall/Sacamanos?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv
 
 var characterLookup = function(characterLookupName, characterLookupServer){
 	$('#error').html('');
@@ -26,7 +8,6 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	//If the json doesn't return with a valid array within 3 seconds we'll display an error
 	//Start error handling by setting the success variable to true 
 	var success = false;
-
 	//Using that variable to lookup the character name and document write to ID's on the html page
 	$.getJSON(characterPath, function(fetchedCharacter){
 		//if we can find the character flag success as true and proceed
@@ -149,16 +130,16 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		$('#characterThumbnail').html(imagePath);
 		// $('#achievementPointsPlaceholder').html(fetchedCharacter.achievementPoints);
 		//results div is initially hidden, when the lookup occurs I have a 3 second time out before unhiding all the data
-		//gives it time to do the json query and assemble the data
+		//gives it time to gather the json data and assemble it
 		setTimeout(function(){
 			$('#resultsDisplay').css('display', 'initial');
-		}, 3000);
-	});
+				}, 3000);
+			});
 		//if the timeout occurs after 5 seconds, display the following error.
 		setTimeout(function() {
-		    if (!success) {
-		        $('#error').html('Error, character not found');
-		    } }, 5000);
+			if (!success) {
+				$('#error').html('Error, character not found');
+					} }, 5000);
 };
 //Ensuring the reset button resets everything including the error from the previous lookup
 var clearAll = function() {
