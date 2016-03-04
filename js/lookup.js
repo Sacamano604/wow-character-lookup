@@ -31,7 +31,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$.getJSON(characterPath, function(fetchedCharacter){
 		//if we can find the character flag success as true and proceed
 		success = true;
-		console.log(fetchedCharacter);
+		//console.log(fetchedCharacter);
 		//Using a switch to find the name of the class and not the actual number from the JSON
 		var findClass = fetchedCharacter.class;
 		switch(findClass){
@@ -129,7 +129,16 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 				raceName = 'Pandaren (Horde)';
 			break;	
 		}
+		//Generates the image tag with the charcter's thumbnail portrait
 		var imagePath = '<img src="http://render-api-us.worldofwarcraft.com/static-render/us/' + fetchedCharacter.thumbnail + '" />';
+		//Finding out of the character is ahead of the curve or not
+		var achievementSearch = fetchedCharacter.achievements.achievementsCompleted;
+		var curve = achievementSearch.indexOf(10044);
+		if (curve == -1) {
+			$('#curveCheck').removeClass().addClass('glyphicon glyphicon-remove');
+		} else {
+			$('#curveCheck').removeClass().addClass('glyphicon glyphicon-ok');
+		};
 		//Pushing the JSON into the span placeholders
 		$('#namePlaceholder').html(fetchedCharacter.name);
 		$('#namePlaceholder').css('color', classColor);
@@ -137,13 +146,15 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		$('#classPlaceholder').html(className);
 		$('#racePlaceholder').html(raceName);
 		$('#levelPlaceholder').html(fetchedCharacter.level);
-		$('#achievementPointsPlaceholder').html(fetchedCharacter.achievementPoints);
 		$('#characterThumbnail').html(imagePath);
+		// $('#achievementPointsPlaceholder').html(fetchedCharacter.achievementPoints);
+		//results div is initially hidden, when the lookup occurs I have a 3 second time out before unhiding all the data
+		//gives it time to do the json query and assemble the data
 		setTimeout(function(){
 			$('#resultsDisplay').css('display', 'initial');
-		}, 2000);
+		}, 3000);
 	});
-		//if the timeout occurs after 3 seconds, display the following error.
+		//if the timeout occurs after 5 seconds, display the following error.
 		setTimeout(function() {
 		    if (!success) {
 		        $('#error').html('Error, character not found');

@@ -60,9 +60,8 @@
 	      	padding: 10px;
 		      background-color: #d9edf7;
 	      }
-	      #checkmark {
+	      #curveCheck {
 	      	font-size: 200%;
-	      	color: green;
 	      }
 	      #legRing {
 	      	background: url("images/legRingBackground.png") no-repeat center center;
@@ -77,7 +76,12 @@
 	      img {
 	      	border-radius: 5px;
 	      }
-
+	      .glyphicon-remove {
+	      	color: red;
+	      }
+	      .glyphicon-ok {
+	      	color: green;
+	      }
 	      /* leave on the bottom */
 	      .panel-heading {
 	      	text-align: center;
@@ -385,7 +389,8 @@
 							</tr>
 							<tr>
 								<td>Ahead of the curve?</td>
-								<td><span id="checkmark" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+								<td><span id="curveCheck" class="" aria-hidden="true"></span></td>
+<!-- 								<td><span id="checkmark" class="glyphicon glyphicon-ok" aria-hidden="true"></span></td> -->
 							</tr>
 						</table>	
 
@@ -769,7 +774,6 @@
                         		</div>
                         	</div>
                         	<!-- END OF THE ROW -->
-<DIV></DIV>
                         </div>
                         <div class="tab-pane fade" id="tab3info">
                         	        	<!-- START OF THE ROW -->
