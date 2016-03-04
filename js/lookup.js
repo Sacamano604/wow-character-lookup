@@ -116,7 +116,8 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		var imagePath = '<img src="http://render-api-us.worldofwarcraft.com/static-render/us/' + fetchedCharacter.thumbnail + '" />';
 		//Finding out of the character is ahead of the curve or not
 		var achievementSearch = fetchedCharacter.achievements.achievementsCompleted;
-		var curve = achievementSearch.indexOf(10044);
+		var aheadOfTheCurveAchievementId = 10044;
+		var curve = achievementSearch.indexOf(aheadOfTheCurveAchievementId);
 		if (curve == -1) {
 			$('#curveCheck').removeClass().addClass('glyphicon glyphicon-remove');
 		} else {
@@ -147,14 +148,8 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 				$('#error').html('Error, character not found');
 					} }, 5000);
 };
-//Ensuring the reset button resets everything including the error from the previous lookup
+//Ensuring the reset button hides the results div and the error if it exists
 var clearAll = function() {
 	$('#error').html('');
-	$('#namePlaceholder').html('');
-	$('#serverPlaceholder').html('');
-	$('#classPlaceholder').html('');
-	$('#racePlaceholder').html('');
-	$('#levelPlaceholder').html('');
-	$('#achievementPointsPlaceholder').html('');
 	$('#resultsDisplay').css('display', 'none');
 };
