@@ -8,7 +8,11 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$("#normalHighmaul").find("tr:gt(0)").remove();
 	$("#heroicHighmaul").find("tr:gt(0)").remove();
 	$("#mythicHighmaul").find("tr:gt(0)").remove();
-
+	// Resetting the blackrock foundry progression table on a fresh lookup so it doesn't append on top of rows that have already been appended
+	// aka: avoiding one huge long table
+	$("#normalBlackrock").find("tr:gt(0)").remove();
+	$("#heroicBlackrock").find("tr:gt(0)").remove();
+	$("#mythicBlackrock").find("tr:gt(0)").remove();	
 	
 	var achievementLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 	var gearLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=items&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
@@ -32,10 +36,14 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 						$('#mythicHighmaul').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.mythicKills + '</td></tr>');
 					});
 				}
-				if (raidObject.id == blackrockFoundryId) {
-
-				}
-				if (raidObject.id == hellfireCitadelId)
+				if (raidObject.id == blackrockFoundryId){
+					$.each(raidObject.bosses, function(eachBoss, bossObject){
+						$('#normalBlackrock').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.normalKills + '</td></tr>');
+						$('#heroicBlackrock').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.heroicKills + '</td></tr>');
+						$('#mythicBlackrock').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.mythicKills + '</td></tr>');
+					});
+				};
+				//if statement for hellfire citadel
 			});
 		});
 	});		// END OF PROGRESSION LOOKUP
