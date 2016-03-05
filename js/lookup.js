@@ -3,12 +3,44 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$('#resultsDisplay').css('display', 'none');
 	$('#searchingBox').css('display', 'flex');
 	$('#error').html('');
+	// Resetting the highmaul progression table on a fresh lookup so it doesn't append on top of rows that have already been appended
+	// aka: avoiding one huge long table
+	$("#normalHighmaul").find("tr:gt(0)").remove();
+	$("#heroicHighmaul").find("tr:gt(0)").remove();
+	$("#mythicHighmaul").find("tr:gt(0)").remove();
+
 	
 	var achievementLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 	var gearLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=items&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
-	
+	var progressionLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=progression&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
+
 	var success = false;
 	
+	// Function to find out the character's current raid progression
+	$.getJSON(progressionLookup, function(fetchedProgression){	// START OF PROGRESSION LOOKUP
+		// Setting the raid IDs into variables
+		var highmaulId = 6996;
+		var blackrockFoundryId = 6967;
+		var hellfireCitadelId = 7545;
+		
+		$.each(fetchedProgression.progression, function(allRaids, eachRaidObject){
+			$.each(eachRaidObject, function(eachRaid, raidObject){
+				if (raidObject.id == highmaulId){
+ 					$.each(raidObject.bosses, function(eachBoss, bossObject){
+						$('#normalHighmaul').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.normalKills + '</td></tr>');
+						$('#heroicHighmaul').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.heroicKills + '</td></tr>');
+						$('#mythicHighmaul').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.mythicKills + '</td></tr>');
+					});
+				}
+				if (raidObject.id == blackrockFoundryId) {
+
+				}
+				if (raidObject.id == hellfireCitadelId)
+			});
+		});
+	});		// END OF PROGRESSION LOOKUP
+
+	// Function to find whether they have a legendary ring or not, and to spit out it's current item level if they do.
 	$.getJSON(gearLookup, function(fetchedItems){
 		success = true;
 		//Putting the ring ids into variables
@@ -23,7 +55,6 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		var agiDpsRing = 124636;
 		var tankRing = 124637;
 		var healerRing = 124638;
-
 		//If else to find if either of the rings match the legendary ring's items levels, and display 'No Ring' if they don't have one
 		if (ring1Id == strDpsRing || ring1Id == intDpsRing || ring1Id == agiDpsRing || ring1Id == tankRing || ring1Id == healerRing) {
 			$('#legRing').html(ring1ItemLevel);
@@ -32,24 +63,8 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		 } else {
 			$('#legRing').html('No Ring');
 		};
-
-
-	// 	var ring1 = ring1Search.indexOf(strDpsRing);
-	// 	var ring2 = 
-
-	// 	if (fetchedItems.items.finger1.id || fetchedItems.items.finger2.id === strDpsRing || intDpsRing || agiDpsRing || tankRing || healerRing) {
-	// 		console.log('yes ring');
-	// 	} else {
-	// 		console.log('no ring');
-	// 	}
-
-	// 	if (ring1 || ring2 == -1) {
-	// 		console.log('no ring');
-	// 	}
-	// 		console.log('yes ring');
-	// });
-});
-	//Using that variable to lookup the character name and document write to ID's on the html page
+	});
+	// Function to find the characters details and whether they have the "Ahead of the curve" achievement.
 	$.getJSON(achievementLookup, function(fetchedCharacter){
 		//if we can find the character flag success as true and proceed
 		success = true;
@@ -187,8 +202,8 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 				$('#error').html('Error, character not found');
 					} }, 3000);
 		};
-//Ensuring the reset button hides the results div and the error if it exists
-var clearAll = function() {
-	$('#error').html('');
-	$('#resultsDisplay').css('display', 'none');
-};
+		//Ensuring the reset button hides the results div and the error if it exists
+		var clearAll = function() {
+			$('#error').html('');
+			$('#resultsDisplay').css('display', 'none');
+		};
