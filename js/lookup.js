@@ -3,15 +3,54 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$('#resultsDisplay').css('display', 'none');
 	$('#searchingBox').css('display', 'flex');
 	$('#error').html('');
-	//Putting the character lookup url, with API key in a variable
-	//Please don't use my API key :) They're free and easy to get
-	var characterPath = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
-	//Because jsonp doesn't handle 404 callback errors we need to use a timeout function to handle the error.
-	//If the json doesn't return with a valid array within 3 seconds we'll display an error
-	//Start error handling by setting the success variable to true 
+	
+	var achievementLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
+	var gearLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=items&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
+	
 	var success = false;
+	
+	$.getJSON(gearLookup, function(fetchedItems){
+		success = true;
+		//Putting the ring ids into variables
+		var ring1Id = fetchedItems.items.finger1.id;
+		var ring2Id = fetchedItems.items.finger2.id;
+		//Putting the ring item level into variables
+		var ring1ItemLevel = fetchedItems.items.finger1.itemLevel;
+		var ring2ItemLevel = fetchedItems.items.finger2.itemLevel;
+		//Variables for the ring ids i'm searching for
+ 		var strDpsRing = 124634;
+		var intDpsRing = 124635;
+		var agiDpsRing = 124636;
+		var tankRing = 124637;
+		var healerRing = 124638;
+
+		//If else to find if either of the rings match the legendary ring's items levels, and display 'No Ring' if they don't have one
+		if (ring1Id == strDpsRing || ring1Id == intDpsRing || ring1Id == agiDpsRing || ring1Id == tankRing || ring1Id == healerRing) {
+			$('#legRing').html(ring1ItemLevel);
+		} else if (ring2Id == strDpsRing || ring2Id == intDpsRing || ring2Id == agiDpsRing || ring2Id == tankRing || ring2Id == healerRing) {
+			$('#legRing').html(ring2ItemLevel);
+		 } else {
+			$('#legRing').html('No Ring');
+		};
+
+
+	// 	var ring1 = ring1Search.indexOf(strDpsRing);
+	// 	var ring2 = 
+
+	// 	if (fetchedItems.items.finger1.id || fetchedItems.items.finger2.id === strDpsRing || intDpsRing || agiDpsRing || tankRing || healerRing) {
+	// 		console.log('yes ring');
+	// 	} else {
+	// 		console.log('no ring');
+	// 	}
+
+	// 	if (ring1 || ring2 == -1) {
+	// 		console.log('no ring');
+	// 	}
+	// 		console.log('yes ring');
+	// });
+});
 	//Using that variable to lookup the character name and document write to ID's on the html page
-	$.getJSON(characterPath, function(fetchedCharacter){
+	$.getJSON(achievementLookup, function(fetchedCharacter){
 		//if we can find the character flag success as true and proceed
 		success = true;
 		//console.log(fetchedCharacter);
@@ -20,7 +59,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		switch(findClass){
 			case 1:
 				className = 'Warrior';
-				classColor = '#C79C6E';
+				classColor = '#C79C6E';			
 			break;
 			case 2:
 				className = 'Paladin';
@@ -138,7 +177,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		setTimeout(function(){
 			$('#resultsDisplay').css('display', 'initial');
 			$('#searchingBox').css('display', 'none');
-				}, 3000);
+				}, 2000);
 			});
 		//if the timeout occurs after 5 seconds, display the following error.
 		setTimeout(function() {
@@ -146,8 +185,8 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 				$('#resultsDisplay').css('display', 'none');
 				$('#searchingBox').css('display', 'none');
 				$('#error').html('Error, character not found');
-					} }, 5000);
-};
+					} }, 3000);
+		};
 //Ensuring the reset button hides the results div and the error if it exists
 var clearAll = function() {
 	$('#error').html('');

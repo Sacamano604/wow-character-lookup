@@ -22,6 +22,7 @@ button {
 }
 #namePlaceholder {
 	font-size: 400%;
+	font-weight: bold;
 }
 #detailsTable {
 	float: right;
