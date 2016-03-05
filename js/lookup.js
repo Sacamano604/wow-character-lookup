@@ -13,6 +13,11 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$("#normalBlackrock").find("tr:gt(0)").remove();
 	$("#heroicBlackrock").find("tr:gt(0)").remove();
 	$("#mythicBlackrock").find("tr:gt(0)").remove();	
+	// Resetting the hellfire citadel progression table on a fresh lookup so it doesn't append on top of rows that have already been appended
+	// aka: avoiding one huge long table
+	$("#normalHellfire").find("tr:gt(0)").remove();
+	$("#heroicHellfire").find("tr:gt(0)").remove();
+	$("#mythicHellfire").find("tr:gt(0)").remove();	
 	
 	var achievementLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 	var gearLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=items&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
@@ -43,7 +48,13 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 						$('#mythicBlackrock').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.mythicKills + '</td></tr>');
 					});
 				};
-				//if statement for hellfire citadel
+				if (raidObject.id == hellfireCitadelId){
+					$.each(raidObject.bosses, function(eachBoss, bossObject){
+						$('#normalHellfire').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.normalKills + '</td></tr>');
+						$('#heroicHellfire').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.heroicKills + '</td></tr>');
+						$('#mythicHellfire').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.mythicKills + '</td></tr>');
+					});
+				};
 			});
 		});
 	});		// END OF PROGRESSION LOOKUP
