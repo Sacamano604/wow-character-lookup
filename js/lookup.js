@@ -1,4 +1,3 @@
-
 var characterLookup = function(characterLookupName, characterLookupServer){
 	$('#resultsDisplay').css('display', 'none');
 	$('#searchingBox').css('display', 'flex');
@@ -18,29 +17,31 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$("#normalHellfire").find("tr:gt(0)").remove();
 	$("#heroicHellfire").find("tr:gt(0)").remove();
 	$("#mythicHellfire").find("tr:gt(0)").remove();	
-	
+	// Variables for the individual look ups I'll need to make
 	var achievementLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 	var gearLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=items&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 	var progressionLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=progression&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 
 	var success = false;
-	
 	// Function to find out the character's current raid progression
-	$.getJSON(progressionLookup, function(fetchedProgression){	// START OF PROGRESSION LOOKUP
+	$.getJSON(progressionLookup, function(fetchedProgression){
+		var success = true;
 		// Setting the raid IDs into variables
 		var highmaulId = 6996;
 		var blackrockFoundryId = 6967;
 		var hellfireCitadelId = 7545;
-		
+		// Iterating over the objects in for each loops
 		$.each(fetchedProgression.progression, function(allRaids, eachRaidObject){
 			$.each(eachRaidObject, function(eachRaid, raidObject){
+				// Finding the progression for the Highmaul Raid
 				if (raidObject.id == highmaulId){
  					$.each(raidObject.bosses, function(eachBoss, bossObject){
 						$('#normalHighmaul').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.normalKills + '</td></tr>');
 						$('#heroicHighmaul').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.heroicKills + '</td></tr>');
 						$('#mythicHighmaul').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.mythicKills + '</td></tr>');
 					});
-				}
+				};
+				// Finding the progression for the Blackrock Foundry Raid
 				if (raidObject.id == blackrockFoundryId){
 					$.each(raidObject.bosses, function(eachBoss, bossObject){
 						$('#normalBlackrock').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.normalKills + '</td></tr>');
@@ -48,6 +49,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 						$('#mythicBlackrock').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.mythicKills + '</td></tr>');
 					});
 				};
+				// Finding the progression for the Hellfire Citadel Raid
 				if (raidObject.id == hellfireCitadelId){
 					$.each(raidObject.bosses, function(eachBoss, bossObject){
 						$('#normalHellfire').append('<tr><td>' + bossObject.name + '</td><td>' + bossObject.normalKills + '</td></tr>');
@@ -57,8 +59,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 				};
 			});
 		});
-	});		// END OF PROGRESSION LOOKUP
-
+	});		
 	// Function to find whether they have a legendary ring or not, and to spit out it's current item level if they do.
 	$.getJSON(gearLookup, function(fetchedItems){
 		success = true;
@@ -187,6 +188,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		}
 		//Generates the image tag with the charcter's thumbnail portrait
 		var imagePath = '<img src="http://render-api-us.worldofwarcraft.com/static-render/us/' + fetchedCharacter.thumbnail + '" />';
+		var amoryPath = '<a href="http://us.battle.net/wow/en/character/thrall/' + fetchedCharacter.name + '/advanced" target="_blank">Amory Link</a>';
 		//Finding out of the character is ahead of the curve or not
 		var achievementSearch = fetchedCharacter.achievements.achievementsCompleted;
 		var aheadOfTheCurveAchievementId = 10044;
@@ -199,6 +201,7 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 		//Pushing the JSON into the span placeholders
 		$('#namePlaceholder').html(fetchedCharacter.name);
 		$('#namePlaceholder').css('color', classColor);
+		$('#amoryLink').html(amoryPath);
 		$('#serverPlaceholder').html(fetchedCharacter.realm);
 		$('#classPlaceholder').html(className);
 		$('#racePlaceholder').html(raceName);

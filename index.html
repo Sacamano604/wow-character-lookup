@@ -287,7 +287,7 @@
 										<option value="Zul'jin">Zul'jin</option>
 										<option value="Zuluhed">Zuluhed</option>
 									</select>
-									<input type="text" name="characterLookupName" size="15" id="characterLookupName" class="form-control" placeholder="Character Name..." />
+									<input type="text" name="characterLookupName" id="characterLookupName" class="form-control" placeholder="Character Name..." />
 									<button class="btn btn-success" type="submit" id="submitButton" onclick="characterLookup(document.getElementById('characterLookupName').value, document.getElementById('characterLookupServer').value); return false;">Look Up</button>
 									<button class="btn btn-danger" type="reset" onclick="clearAll();">Reset</button><span id="error"></span>
 								</form>
@@ -302,7 +302,7 @@
 					<h1 id="namePlaceholder"></h1>
 					<p class="characterSpecifics">Level <span id="levelPlaceholder"></span> <span id="racePlaceholder"></span> <span id="classPlaceholder"></span></p>
 					<p class="characterSpecifics">Playing on <span id="serverPlaceholder"></span></p>
-					<p>This side needs work, doesn't look good...</p>
+					<p id="amoryLink"></p>
 				</div>
 				<div class="col-md-6">
 					<table id="detailsTable">
