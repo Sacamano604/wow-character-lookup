@@ -9,13 +9,6 @@ Dec 6th: Finalized initial setup. Looking up a specific character and displaying
 
 March 1-3rd, 2016: Been working on this a lot the last couple of days. Added functionality to find out whether the user has a certain achievement or not and displaying a check mark or cross. Pulling up the character thumbnail. Added some user feedback for when we're searching for a character so they're not in the dark. Lots of CSS/HTML editing, and file structure clean up.
 
-
-Left to do:
-	<ul>
-		<li>Find the user's legendary ring item level and display a 0 if we can't find one</li>
-		<li>Search for their raid progress and build a table of bosses, different difficulties and kills</li>
-	</ul>
-
-Currently the ring item level and the raid boss kills are all static data
+March 6th, 2016: This iteration of the app is done. There's more that could be added (like checking if they have the proper enchants) but for now I'm happy to leave it as is. 
 
 You're able to see a working demo here: http://www.bentoussi.com/blizzardapi/
