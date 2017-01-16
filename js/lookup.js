@@ -1,9 +1,17 @@
-// Server Lookup AutoComplete
-$("#characterLookupServer").autocomplete({
-    source: usServers
+// Server Lookup AutoComplete based on region chosen
+$('#characterLookupRegion').change(function() {
+	if($(this).val() == 'us') {
+		$("#characterLookupServer").autocomplete({
+ 		   	source: usServers
+		});
+	} else {
+		$("#characterLookupServer").autocomplete({
+ 		   	source: euServers
+		});
+	}
 });
 
-var characterLookup = function(characterLookupName, characterLookupServer){
+var characterLookup = function(characterLookupRegion, characterLookupServer, characterLookupName){
 	$('#resultsDisplay').css('display', 'none');
 	$('#searchingBox').css('display', 'flex');
 	$('#error').html('');
@@ -22,10 +30,12 @@ var characterLookup = function(characterLookupName, characterLookupServer){
 	$("#normalHellfire").find("tr:gt(0)").remove();
 	$("#heroicHellfire").find("tr:gt(0)").remove();
 	$("#mythicHellfire").find("tr:gt(0)").remove();	
+	// Constructing lookup URL based on region
+	var lookupURL = 'https://' + characterLookupRegion + '.api.battle.net/wow/character/';
 	// Variables for the individual look ups I'll need to make
-	var achievementLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
-	var gearLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=items&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
-	var progressionLookup = 'https://us.api.battle.net/wow/character/' + characterLookupServer + '/' + characterLookupName + '?fields=progression&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
+	var achievementLookup = lookupURL + characterLookupServer + '/' + characterLookupName + '?fields=achievements&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
+	var gearLookup = lookupURL + characterLookupServer + '/' + characterLookupName + '?fields=items&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
+	var progressionLookup = lookupURL + characterLookupServer + '/' + characterLookupName + '?fields=progression&locale=en_US&apikey=n4t8curd5mfeupxugkqa599r2wx2x9wv';
 
 	var success = false;
 	// Function to find out the character's current raid progression
