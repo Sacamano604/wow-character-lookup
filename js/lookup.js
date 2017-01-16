@@ -1,3 +1,8 @@
+// Server Lookup AutoComplete
+$("#characterLookupServer").autocomplete({
+    source: usServers
+});
+
 var characterLookup = function(characterLookupName, characterLookupServer){
 	$('#resultsDisplay').css('display', 'none');
 	$('#searchingBox').css('display', 'flex');
